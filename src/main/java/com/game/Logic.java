@@ -13,7 +13,9 @@ public class Logic {
     private final Random random = new Random();
     private boolean drawComplete = false;
     private final List<Combo> combosList = new ArrayList<>();
-    private int number = 4;
+    private int number = 0;
+
+
 
     public void xDraw(Button tile) {
 
@@ -32,6 +34,7 @@ public class Logic {
 
     }
 
+
     public void easyBotDraw(Board board) {
 
 
@@ -48,7 +51,17 @@ public class Logic {
             }
         }
 
-        drawComplete = false;
+
+            drawComplete = false;
+
+            number++;
+
+            if (number == 4) {
+                drawComplete = true;
+            }
+
+
+
     }
 
     public void hardBotDraw() {
@@ -60,14 +73,17 @@ public class Logic {
         if (playable) {
 
             if (firstPlayerTurn) {
-
                 xDraw(tile);
                 checkState();
 
+
+
                 if (!pvpMode) {
 
-                        easyBotDraw(board);
-                        checkState();
+
+                    easyBotDraw(board);
+                    checkState();
+
 
                 }
 
