@@ -34,6 +34,8 @@ public class MenuScene extends VBox implements Serializable {
     public void goToPvPScene(Stage stage, Scene scene) {
 
         pvpButton.setOnAction(event -> {
+            Combo.setxPoint(0);
+            Combo.setoPoint(0);
             playerVsPlayer = true;
             stage.setScene(scene);
         });
@@ -49,6 +51,8 @@ public class MenuScene extends VBox implements Serializable {
     public void goToPvBScene(Stage stage, Scene scene) {
 
         pvbButton.setOnAction(event -> {
+            Combo.setxPoint(0);
+            Combo.setoPoint(0);
             playerVsPlayer = false;
             stage.setScene(scene);
         });

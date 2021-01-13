@@ -80,7 +80,7 @@ public class BoardScene extends GridPane implements Serializable {
                     int xPoints = Combo.getXPoint();
                     int oPoints = Combo.getOPoint();
 
-                    bw.write(p1Name + "vs" + p2Name + "|" + xPoints + ":" + oPoints + "\n");
+                    bw.write(p1Name + " vs " + p2Name + " | " + xPoints + " : " + oPoints + "\n");
                     bw.close();
 
 
@@ -100,7 +100,7 @@ public class BoardScene extends GridPane implements Serializable {
                     int xPoints = Combo.getXPoint();
                     int oPoints = Combo.getOPoint();
 
-                    bw.write(p1Name + "vs" + p2Name + "|" + xPoints + ":" + oPoints + "\n");
+                    bw.write(p1Name +  " vs " + p2Name + " | " + xPoints + " : " + oPoints + "\n");
                     bw.close();
 
 
@@ -108,8 +108,6 @@ public class BoardScene extends GridPane implements Serializable {
 
                     System.out.println("Problem z pikiem");
                 }
-
-
 
             }
 

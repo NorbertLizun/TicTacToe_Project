@@ -2,45 +2,60 @@ package com.game;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 
 public class RankingScene extends GridPane {
 
-    private Button pvpRankingButton = new Button("PVP Ranking");
-    private Button pvbRankingButton = new Button("PVB Ranking");
-    private Button backButton = new Button("Back");
-    private MenuScene menuScene = new MenuScene();
-    private Board board = new Board(menuScene);
-    private BoardScene boardScene = new BoardScene(board);
-    private Map<Integer, String> list = boardScene.getRankingList();
-    private Text rankingText = new Text("PVP");
-    private List <String> pvpRankingList = new ArrayList<>();
-    private List <String> pvbRankingList = new ArrayList<>();
+    private final Button pvpRankingButton = new Button("PVP Ranking");
+    private final Button pvbRankingButton = new Button("PVB Ranking");
+    private final Button backButton = new Button("Back");
+    private final MenuScene menuScene = new MenuScene();
+    private final Board board = new Board(menuScene);
+    private final BoardScene boardScene = new BoardScene(board);
+    private final VBox vBoxButton = new VBox();
+    private final VBox vBoxRanking = new VBox();
+    private final Map<Integer, String> list = boardScene.getRankingList();
+    private final Text rankingText = new Text("PVP");
+    private final List <String> pvpRankingList = new ArrayList<>();
+    private final List <String> pvbRankingList = new ArrayList<>();
     private String bigString = "";
 
 
-
     public RankingScene() {
-        this.add(pvpRankingButton, 1,0);
-        this.add(pvbRankingButton, 2,0);
-        this.add(backButton,3,0);
-        this.add(rankingText,1,2, 5,5);
+
+        this.add(vBoxRanking(), 1,1,2,10);
+        this.add(vBoxButton(), 3,1,2,10);
         pvpRanking();
         showPvbRanking();
     }
 
+    public VBox vBoxButton() {
+        vBoxButton.getChildren().addAll(pvpRankingButton, pvbRankingButton, backButton);
+
+        return  vBoxButton;
+    }
+
+    public VBox vBoxRanking() {
+        vBoxRanking.getChildren().add(rankingText);
+        vBoxRanking.setMinWidth(200);
+        vBoxRanking.setBackground(new Background(new BackgroundFill(Color.BISQUE, null, null)));
+
+
+        return vBoxRanking;
+    }
 
     public void backButton(Stage stage, Scene scene) {
         backButton.setOnAction(event -> {
@@ -48,8 +63,6 @@ public class RankingScene extends GridPane {
             rankingText.setText("");
         });
     }
-
-
 
     public void pvpRanking() {
 
@@ -88,9 +101,6 @@ public class RankingScene extends GridPane {
 
     }
 
-
-
-
     public void showPvbRanking() {
 
         pvbRankingButton.setOnAction(event -> {
@@ -107,7 +117,7 @@ public class RankingScene extends GridPane {
                 }
 
                 for (int i = 0; i < pvbRankingList.size(); i++) {
-                    bigString +=  pvbRankingList.get(i) + "\n";
+                    bigString += pvbRankingList.get(i) + "\n";
                 }
                 rankingText.setText(bigString);
 
@@ -120,18 +130,8 @@ public class RankingScene extends GridPane {
             }
 
 
-           pvbRankingButton.setDisable(true);
-
-
-
+            pvbRankingButton.setDisable(true);
         });
 
-
     }
-
-
-
-
-
-
 }

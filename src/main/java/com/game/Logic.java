@@ -13,6 +13,7 @@ public class Logic {
     private final Random random = new Random();
     private boolean drawComplete = false;
     private final List<Combo> combosList = new ArrayList<>();
+    private int number = 4;
 
     public void xDraw(Button tile) {
 
@@ -34,14 +35,17 @@ public class Logic {
     public void easyBotDraw(Board board) {
 
 
+
         while (!drawComplete) {
 
             int randomTile = random.nextInt(9);
 
             if (board.getTile()[randomTile].getText().equals("")) {
                 board.getTile()[randomTile].setText("O");
-                drawComplete = true;
                 firstPlayerTurn = true;
+                drawComplete = true;
+
+
             }
         }
 
@@ -63,8 +67,13 @@ public class Logic {
 
                 if (!pvpMode) {
 
-                    easyBotDraw(board);
-                    checkState();
+                    while (number > 0) {
+
+                        easyBotDraw(board);
+                        checkState();
+                    }
+
+                    number--;
 
                 }
 
