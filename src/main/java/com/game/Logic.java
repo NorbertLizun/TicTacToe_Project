@@ -45,7 +45,6 @@ public class Logic {
                 firstPlayerTurn = true;
                 drawComplete = true;
 
-
             }
         }
 
@@ -67,13 +66,8 @@ public class Logic {
 
                 if (!pvpMode) {
 
-                    while (number > 0) {
-
                         easyBotDraw(board);
                         checkState();
-                    }
-
-                    number--;
 
                 }
 
@@ -81,9 +75,9 @@ public class Logic {
 
                 oDraw(tile);
                 checkState();
-
             }
         }
+
     }
 
     public void combinations(Button[][] button) {
