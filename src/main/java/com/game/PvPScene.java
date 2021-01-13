@@ -10,16 +10,26 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class PvPScene extends VBox  {
+import java.io.Serializable;
+
+public class PvPScene extends VBox implements Serializable {
 
     private final VBox vBox = new VBox();
     private final HBox hBox = new HBox();
-    private final Label p1Nick = new Label("P1 nickname:");
+    private final Label  p1Nick = new Label("P1 nickname:") ;
     private final Label p2Nick = new Label("P2 nickname:");
     private final TextField p1TextField = new TextField();
     private final TextField p2TextField = new TextField();
     private final Button backButton = new Button("Back");
     private final Button playButton = new Button("PLAY");
+
+    public String getP1TextField()  {
+        return  p1TextField.getText();
+    }
+
+    public String getP2TextField() {
+        return p2TextField.getText();
+    }
 
     public PvPScene() {
 
@@ -51,8 +61,6 @@ public class PvPScene extends VBox  {
 
         hBox.setSpacing(20);
         hBox.setPadding(new Insets(10));
-
-
     }
 
     public void goToBoardScene(Stage stage, Scene scene, Board board) {

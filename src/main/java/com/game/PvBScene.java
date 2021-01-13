@@ -24,6 +24,10 @@ public class PvBScene extends VBox {
     private final Button backButton = new Button("Back");
     private final Button playButton = new Button("PLAY");
 
+    public TextField getPlayerTextField() {
+        return playerTextField;
+    }
+
     public PvBScene() {
 
         this.getChildren().addAll(vBox(), hBox(), hBox2());

@@ -33,6 +33,7 @@ public class Logic {
 
     public void easyBotDraw(Board board) {
 
+
         while (!drawComplete) {
 
             int randomTile = random.nextInt(9);

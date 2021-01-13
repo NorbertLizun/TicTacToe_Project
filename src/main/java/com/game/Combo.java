@@ -6,8 +6,7 @@ import javafx.scene.control.Button;
 public class Combo {
 
     private final Button[] buttons;
-    private boolean xWin;
-    private boolean oWin;
+
 
     private static int xPoint;
     private static int oPoint;
@@ -20,12 +19,12 @@ public class Combo {
         return oPoint;
     }
 
-    public boolean isxWin() {
-        return xWin;
+    public static void setxPoint(int xPoint) {
+        Combo.xPoint = xPoint;
     }
 
-    public boolean isoWin() {
-        return oWin;
+    public static void setoPoint(int oPoint) {
+        Combo.oPoint = oPoint;
     }
 
     public Combo(Button... buttons) {
@@ -47,41 +46,20 @@ public class Combo {
         if (buttons[0].getText().equals("X")) {
             setWinColor();
             xPoint++;
-            xWin = true;
-
-
 
         } else if (buttons[0].getText().equals("O")) {
             setWinColor();
             oPoint++;
-            oWin = true;
-
-
 
         }
 
-        xWin = false;
-        oWin = false;
-
-
-
     }
-
 
     public void setWinColor() {
         for (int i = 0; i < 3; i++) {
             buttons[i].setStyle("-fx-background-color: #00ff00");
         }
-
     }
-
-
-
-
-
-
-
-
 
 
 

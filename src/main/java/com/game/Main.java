@@ -14,12 +14,15 @@ public class Main extends Application {
     PvBScene pvbScene = new PvBScene();
     Board board = new Board(menuScene);
     BoardScene boardScene = new BoardScene(board);
+    RankingScene rankingScene = new RankingScene();
+
 
 
     Scene menuWindow = new Scene(menuScene,500,500);
     Scene pvpWindow = new Scene(pvpScene, 500, 500);
     Scene pvbWindow = new Scene(pvbScene, 500,500);
-    Scene boardWindow = new Scene(boardScene, 500,500);
+    Scene boardWindow = new Scene(boardScene, 650,500);
+    Scene rankingWindow = new Scene(rankingScene, 500,500);
 
 
     public static void main(String[] args) {
@@ -33,15 +36,18 @@ public class Main extends Application {
 
         menuScene.goToPvPScene(window, pvpWindow);
         menuScene.goToPvBScene(window, pvbWindow);
+        menuScene.goToRankingScene(window, rankingWindow);
         menuScene.exit(window);
+
+        rankingScene.backButton(window,menuWindow);
 
 
         pvpScene.backToMenu(window, menuWindow);
         pvpScene.goToBoardScene(window, boardWindow , board);
-
-
         pvbScene.backToMenu(window, menuWindow);
         pvbScene.goToBoardScene(window, boardWindow, board);
+
+
 
 
         boardScene.backButton(window, menuWindow, menuScene);
